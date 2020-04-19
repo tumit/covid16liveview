@@ -1,7 +1,9 @@
 defmodule Covid66liveWeb.Counter do
     use Phoenix.LiveView
-  
+    require Logger
+
     def mount(_params, _session, socket) do
+      Logger.debug "mount"
       {:ok, assign(socket, :val, 0)}
     end
   
@@ -14,6 +16,7 @@ defmodule Covid66liveWeb.Counter do
     end
   
     def render(assigns) do
+      Logger.debug "render"
       ~L"""
       <div>
         <h1>The count is: <%= @val %></h1>
